@@ -52,10 +52,10 @@ class Process:
             img = cv2.dilate(img, kernel, iterations=1)
             img = cv2.erode(img, kernel, iterations=1)
         elif select == 2:
-            kernel = np.ones((7, 7), np.uint8)
-            img = cv2.erode(img, kernel, iterations=1)
-            kernel = np.ones((3, 3), np.uint8)
-            img = cv2.dilate(img, kernel, iterations=2)
+            kernel = np.ones((5, 5), np.uint8)
+            img = cv2.erode(img, kernel, iterations=5)
+            kernel = np.ones((5, 5), np.uint8)
+            img = cv2.dilate(img, kernel, iterations=5)
         elif select == 3:
             blur = cv2.GaussianBlur(img, (3, 3), 0)
             ret3, img = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
@@ -135,7 +135,7 @@ class Process:
         :return: two numpy arrays
         """
         # apply blur and thinning
-        img = Process.blurs(img, 1)
+        img = Process.blurs(img)
 
         # get contours
         ret, img = cv2.threshold(img, 180, 255, 0)
@@ -195,7 +195,7 @@ class Process:
         :param img: original image
         :return: NIL
         """
-        dim = max(img.shape[0], img.shape[1])
+        dim = max(img.shape[:2])
         a = np.repeat(np.arange(dim), dim).reshape((dim, dim))
         Process.idx = np.dstack((a, a.T))
 

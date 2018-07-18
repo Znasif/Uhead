@@ -55,12 +55,14 @@ class Visual:
         :param a_map: default to greyscale image
         :return: NIL
         """
-        plt.title(title)
-        plt.axis('off')
+        height, width = image.shape[:2]
+        _, ax = plt.subplots(1, figsize=(height//100, width//100))
+        ax.set_title(title)
         if len(image.shape) == 3:
-            plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+            ax.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
         else:
-            plt.imshow(image, cmap=a_map)
+            ax.imshow(image, cmap=a_map)
+        ax.axis('off')
         Visual.image = image
         plt.show()
 

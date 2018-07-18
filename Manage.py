@@ -63,11 +63,11 @@ def manual(t):
 
 
 if __name__ == "__main__":
-    title = ["Numbered.png", "Enhanced.png", "nums.jpg", "plot.jpg", "port.jpg", "see.jpg", "subsection.jpg",
+    title = ["Numbered.png", "Enhanced.png", "nums.jpg", "plot.tif", "port.jpg", "see.jpg", "subsection.jpg",
              "testplot.jpg", "trial.jpg"]
     temps = ["Template/Symbols.png", "Template/SymbolSet.png", "Template/Crops"]
 
-    # make_subplots(title[0])
-    # separate_plots(title[4])
+    # make_subplots(title[3])
+    separate_plots(title[4])
     # hough_trans(title[3])
-    manual(title[3])
+    # manual(title[3])
