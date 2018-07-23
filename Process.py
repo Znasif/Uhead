@@ -14,8 +14,6 @@ class Process:
     def __init__(self):
         pass
 
-    idx = None
-
     @staticmethod
     def get_bin(img, threshold):
         """
@@ -138,8 +136,8 @@ class Process:
         img = Process.blurs(img)
 
         # get contours
-        ret, img = cv2.threshold(img, 180, 255, 0)
-        im2, contours, hierarchy = cv2.findContours(img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        ret, img2 = cv2.threshold(img, 180, 255, 0)
+        im2, contours, hierarchy = cv2.findContours(img2, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
         max_contour_size = 110000
         min_contour_ize = -1
@@ -189,18 +187,7 @@ class Process:
         """
 
     @staticmethod
-    def create_idx(img):
-        """
-        Stores a mapping for img pixel neighbors to pixel
-        :param img: original image
-        :return: NIL
-        """
-        dim = max(img.shape[:2])
-        a = np.repeat(np.arange(dim), dim).reshape((dim, dim))
-        Process.idx = np.dstack((a, a.T))
-
-    @staticmethod
-    def getn(x, y, coord, d=1):
+    def getn(r, coord, d=1):
         """
         returns the neighboring indices or the values of coord
         :param x: shape[0]
@@ -209,17 +196,40 @@ class Process:
         :param d: window size
         :return: array of indices
         """
+        out = []
         i, j = coord
-        return Process.idx[max(i - d, 0):min(i + d + 1, x), max(j - d, 0):min(j + d + 1, y)].flatten()
+        x, y = r
+        for m in range(-d, d+1):
+            for n in range(-d, d+1):
+                out.append((min(max(i+m, 0), x - 1), min(max(j+n, 0), y - 1)))
+        return out
 
     @staticmethod
-    def region_growing(seed):
+    def region_growing(img, seed):
         """
         Samples pixel from the original image from the provided seed point list
         and shows its connected region
-        :param seed:
+        :param img: original image
+        :param seed: seeds
         :return: image containing only seed-connected region
         """
+        s = seed.copy()
+        grow = np.ones_like(img)
+        grow[grow == 1] = 255
+        processed = np.ones((img.shape[0], img.shape[1]), dtype=bool)
+        img_thresh = 180
+        for i in range(len(s)):
+            processed[s[i]] = False
+        while len(s) > 0:
+            pix = s[0]
+            grow[pix] = img[pix]
+            for coord in Process.getn(img.shape[:2], pix):
+                if processed[coord] and img[coord] < img_thresh:
+                    grow[coord] = img[coord]
+                    s.append(coord)
+                    processed[coord] = False
+            s.pop(0)
+        return grow
 
     @staticmethod
     def seed_selection(cnt):

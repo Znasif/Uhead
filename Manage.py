@@ -62,12 +62,20 @@ def manual(t):
     Visual.image_write(sp(t) + "_manual", a)
 
 
+def find_original(t):
+    a = Visual.image_open(t)
+    Visual.get_pixel(a)
+    b = Process.region_growing(a, Visual.clicks)
+    Visual.image_write(sp(t) + "_region", b)
+
+
 if __name__ == "__main__":
     title = ["Numbered.png", "Enhanced.png", "nums.jpg", "plot.tif", "port.jpg", "see.jpg", "subsection.jpg",
              "testplot.jpg", "trial.jpg"]
     temps = ["Template/Symbols.png", "Template/SymbolSet.png", "Template/Crops"]
 
     # make_subplots(title[3])
-    separate_plots(title[4])
+    # separate_plots(title[4])
     # hough_trans(title[3])
     # manual(title[3])
+    find_original(title[4])

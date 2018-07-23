@@ -172,6 +172,8 @@ class Visual:
             if pressed_key == ord('q'):
                 cv2.destroyAllWindows()
                 break
+            elif 47 < pressed_key < 58:
+                continue
             elif pressed_key == ord('a'):
                 Visual.shift = True
             elif pressed_key == ord('c'):
