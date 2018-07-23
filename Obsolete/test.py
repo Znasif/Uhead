@@ -2,13 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 
+
 def plts(title, image, map='gray'):
     plt.imshow(image, cmap=map)
     plt.title(title)
     plt.show()
 
 
-img = cv2.imread('SymbolSet.png',0)
+img = cv2.imread('SymbolSet.png', 0)
 
 ret, img = cv2.threshold(img, 180, 255, 0)
 

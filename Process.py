@@ -3,7 +3,7 @@ import numpy as np
 import random as rn
 from skimage.feature import canny
 from skimage.transform import probabilistic_hough_line
-from scipy.ndimage import grey_erosion, grey_dilation, generate_binary_structure
+from scipy.ndimage import grey_erosion, grey_dilation
 
 
 class Process:
@@ -99,8 +99,14 @@ class Process:
                 cv2.drawContours(color, [cnt], 0, (i, j, k), -1)
                 empty = np.zeros(img.shape, np.uint8)
             return color, contours[1:]
-        else:
+        elif flag == 0:
             return img, contours[1:]
+        else:
+            cn = []
+            for i in contours:
+                if cv2.contourArea(i) > 30:
+                    cn.append(i)
+            return cn
 
     @staticmethod
     def get_subplots(img_org, img_plot):
@@ -179,12 +185,14 @@ class Process:
         return img
 
     @staticmethod
-    def get_original(loc):
-        """
-        The pixel is found on the original image and extracted from it
-        :param loc: pixel location
-        :return: extracted image
-        """
+    def get_original(image):
+        im = image.copy()
+        contours = Process.get_contour(im, 2)
+        li = []
+        for cnt in contours:
+            x, y, w, h = cv2.boundingRect(cnt)
+            li.append(im[y:y + h, x:x + w])
+        return li, contours
 
     @staticmethod
     def getn(r, coord, d=1):

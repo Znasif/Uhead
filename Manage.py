@@ -64,9 +64,15 @@ def manual(t):
 
 def find_original(t):
     a = Visual.image_open(t)
+    Visual.init_dict()
     Visual.get_pixel(a)
-    b = Process.region_growing(a, Visual.clicks)
-    Visual.image_write(sp(t) + "_region", b)
+    for i in range(10):
+        b = Process.region_growing(a, Visual.track[i])
+        Visual.image_write(sp(t) + "_region" + str(i), b)
+    '''li, contours = Process.get_original(b)
+    for i, j in enumerate(li):
+        Visual.image_write(str(i) + "_ex", j)
+    '''
 
 
 if __name__ == "__main__":
@@ -78,4 +84,4 @@ if __name__ == "__main__":
     # separate_plots(title[4])
     # hough_trans(title[3])
     # manual(title[3])
-    find_original(title[4])
+    find_original("Mouza Map.jpg")

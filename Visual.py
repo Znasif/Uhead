@@ -17,6 +17,7 @@ class Visual:
     current = [0, 0]
     shift = False
     clicks = []
+    track = {}
 
     @staticmethod
     def image_open(title, flag=0):
@@ -123,6 +124,13 @@ class Visual:
         return new
 
     @staticmethod
+    def init_dict(flag=1):
+        if flag:
+            """ Only Digits"""
+            for i in range(10):
+                Visual.track[i] = []
+
+    @staticmethod
     def draw_contour(img_org, contour):
         """
         Just an interface for drawContour function
@@ -130,12 +138,10 @@ class Visual:
         :param contour: contour to be drawn
         :return: image with just the contour
         """
-
         empty = np.zeros(img_org.shape, np.uint8)
         empty = ~empty
-        cv2.drawContours(empty, [contour], 0, 0, 1)
-        Visual.image = empty
-        return empty
+        cv2.drawContours(empty, [contour], 0, 0, -1)
+        Visual.plot('contour', empty)
 
     @staticmethod
     def on_mouse(event, x, y, flags, params):
@@ -173,6 +179,8 @@ class Visual:
                 cv2.destroyAllWindows()
                 break
             elif 47 < pressed_key < 58:
+                Visual.track[pressed_key - 48].append(Visual.clicks[-1])
+                print(pressed_key - 48)
                 continue
             elif pressed_key == ord('a'):
                 Visual.shift = True
