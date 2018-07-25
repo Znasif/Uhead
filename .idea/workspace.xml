@@ -3,12 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="2ef04c23-e657-433a-827d-cdf3b739ee87" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Extracted/port_region.tif" beforeDir="false" afterPath="$PROJECT_DIR$/Extracted/port_region.tif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extracted/Mouza Map_region0.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extracted/Mouza Map_region1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extracted/Mouza Map_region2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extracted/Mouza Map_region3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extracted/Mouza Map_region4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extracted/Mouza Map_region5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extracted/Mouza Map_region6.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extracted/Mouza Map_region7.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extracted/Mouza Map_region8.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extracted/Mouza Map_region9.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extracted/port_region.tif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Manage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mask_RCNN" beforeDir="false" afterPath="$PROJECT_DIR$/Mask_RCNN" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obsolete/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Obsolete/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Process.py" beforeDir="false" afterPath="$PROJECT_DIR$/Process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Region.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Visual.py" beforeDir="false" afterPath="$PROJECT_DIR$/Visual.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hough.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,15 +31,15 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Uhead$try.coverage" NAME="try Coverage Results" MODIFIED="1532275299597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Obsolete" />
     <SUITE FILE_PATH="coverage/Uhead$test.coverage" NAME="test Coverage Results" MODIFIED="1532319781960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Obsolete" />
-    <SUITE FILE_PATH="coverage/Uhead$Manage.coverage" NAME="Manage Coverage Results" MODIFIED="1532326947213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Uhead$Manage.coverage" NAME="Manage Coverage Results" MODIFIED="1532515949230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Manage.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Manage.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Manage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+            <state relative-caret-position="359">
+              <caret line="73" column="41" lean-forward="true" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -39,10 +50,11 @@
       <file leaf-file-name="Process.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2128">
-              <caret line="101" column="23" selection-start-line="101" selection-start-column="23" selection-end-line="101" selection-end-column="23" />
+            <state relative-caret-position="261">
+              <caret line="252" selection-start-line="252" selection-end-line="252" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+                <marker date="1532521410777" expanded="true" signature="8706:8713" ph="..." />
               </folding>
             </state>
           </provider>
@@ -51,8 +63,8 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Obsolete/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="226">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -63,7 +75,7 @@
       <file leaf-file-name="Mask.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Obsolete/Mask.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="950">
+            <state relative-caret-position="340">
               <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -75,11 +87,29 @@
       <file leaf-file-name="Visual.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Visual.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1657">
-              <caret line="60" column="27" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+            <state relative-caret-position="264">
+              <caret line="184" column="39" lean-forward="true" selection-start-line="184" selection-start-column="39" selection-end-line="184" selection-end-column="39" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Mask_RCNN/mrcnn/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="255" column="46" lean-forward="true" selection-start-line="255" selection-start-column="46" selection-end-line="255" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="balloon.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Mask_RCNN/samples/balloon/balloon.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2506">
+              <caret line="224" column="43" lean-forward="true" selection-start-line="224" selection-start-column="43" selection-end-line="224" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -100,9 +130,9 @@
         <option value="$PROJECT_DIR$/Obsolete/try.py" />
         <option value="$PROJECT_DIR$/Obsolete/Mask.py" />
         <option value="$PROJECT_DIR$/Obsolete/test.py" />
-        <option value="$PROJECT_DIR$/Process.py" />
-        <option value="$PROJECT_DIR$/Visual.py" />
         <option value="$PROJECT_DIR$/Manage.py" />
+        <option value="$PROJECT_DIR$/Visual.py" />
+        <option value="$PROJECT_DIR$/Process.py" />
       </list>
     </option>
   </component>
@@ -133,11 +163,6 @@
             <path>
               <item name="Uhead" type="b2602c69:ProjectViewProjectNode" />
               <item name="Uhead" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Uhead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Uhead" type="462c0819:PsiDirectoryNode" />
-              <item name="Obsolete" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -255,17 +280,17 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32581967" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32786885" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13800539" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13746631" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" weight="0.8603774" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -283,10 +308,142 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Obsolete/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Obsolete/Mask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="988">
+          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visual.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3097">
+          <caret line="163" column="45" selection-start-line="163" selection-start-column="45" selection-end-line="163" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1273">
+          <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4541">
+          <caret line="239" column="19" selection-start-line="239" selection-start-column="19" selection-end-line="239" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1532521410777" expanded="true" signature="8706:8713" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Obsolete/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Obsolete/Mask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="988">
+          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visual.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3268">
+          <caret line="172" column="53" lean-forward="true" selection-start-line="172" selection-start-column="53" selection-end-line="172" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1330">
+          <caret line="70" column="57" lean-forward="true" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1919">
+          <caret line="101" column="23" selection-start-line="101" selection-start-column="23" selection-end-line="101" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1532521410777" expanded="true" signature="8706:8713" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Obsolete/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Obsolete/Mask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="988">
+          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visual.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="60" column="27" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1406">
@@ -303,6 +460,7 @@
           <caret line="219" column="24" lean-forward="true" selection-start-line="219" selection-start-column="24" selection-end-line="219" selection-end-column="24" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+            <marker date="1532521410777" expanded="true" signature="8706:8713" ph="..." />
           </folding>
         </state>
       </provider>
@@ -347,13 +505,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Region.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Region.py" />
     <entry file="file://$PROJECT_DIR$/Visual.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1045">
@@ -370,6 +522,7 @@
           <caret line="199" lean-forward="true" selection-start-line="199" selection-end-line="199" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+            <marker date="1532521410777" expanded="true" signature="8706:8713" ph="..." />
           </folding>
         </state>
       </provider>
@@ -390,6 +543,7 @@
           <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+            <marker date="1532521410777" expanded="true" signature="8706:8713" ph="..." />
           </folding>
         </state>
       </provider>
@@ -441,6 +595,7 @@
           <caret line="58" column="25" lean-forward="true" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+            <marker date="1532521410777" expanded="true" signature="8706:8713" ph="..." />
           </folding>
         </state>
       </provider>
@@ -478,6 +633,7 @@
           <caret line="195" column="20" lean-forward="true" selection-start-line="195" selection-start-column="20" selection-end-line="195" selection-end-column="20" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+            <marker date="1532521410777" expanded="true" signature="8706:8713" ph="..." />
           </folding>
         </state>
       </provider>
@@ -536,20 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Mask_RCNN/samples/balloon/balloon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2603">
-          <caret line="142" column="34" selection-start-line="142" selection-start-column="34" selection-end-line="142" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mask_RCNN/mrcnn/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1235">
-          <caret line="409" column="32" selection-start-line="409" selection-start-column="32" selection-end-line="409" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Maps/Template/try.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-162">
@@ -564,27 +706,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Region.py">
+    <entry file="file://$PROJECT_DIR$/Region.py" />
+    <entry file="file://$PROJECT_DIR$/Manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="61" column="22" lean-forward="true" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+        <state relative-caret-position="359">
+          <caret line="73" column="41" lean-forward="true" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Obsolete/Mask.py">
+    <entry file="file://$PROJECT_DIR$/Process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+        <state relative-caret-position="261">
+          <caret line="252" selection-start-line="252" selection-end-line="252" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1532521410777" expanded="true" signature="8706:8713" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Obsolete/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="226">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Obsolete/Mask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -593,31 +750,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Visual.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1657">
-          <caret line="60" column="27" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+        <state relative-caret-position="264">
+          <caret line="184" column="39" lean-forward="true" selection-start-line="184" selection-start-column="39" selection-end-line="184" selection-end-column="39" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Process.py">
+    <entry file="file://$PROJECT_DIR$/Mask_RCNN/mrcnn/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2128">
-          <caret line="101" column="23" selection-start-line="101" selection-start-column="23" selection-end-line="101" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="114">
+          <caret line="255" column="46" lean-forward="true" selection-start-line="255" selection-start-column="46" selection-end-line="255" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Manage.py">
+    <entry file="file://$PROJECT_DIR$/Mask_RCNN/samples/balloon/balloon.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2506">
+          <caret line="224" column="43" lean-forward="true" selection-start-line="224" selection-start-column="43" selection-end-line="224" selection-end-column="43" />
         </state>
       </provider>
     </entry>

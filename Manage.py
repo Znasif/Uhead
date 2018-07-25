@@ -64,24 +64,17 @@ def manual(t):
 
 def find_original(t):
     a = Visual.image_open(t)
-    Visual.init_dict()
+    # Visual.init_dict()
     Visual.get_pixel(a)
-    for i in range(10):
-        b = Process.region_growing(a, Visual.track[i])
-        Visual.image_write(sp(t) + "_region" + str(i), b)
-    '''li, contours = Process.get_original(b)
-    for i, j in enumerate(li):
-        Visual.image_write(str(i) + "_ex", j)
-    '''
 
 
 if __name__ == "__main__":
     title = ["Numbered.png", "Enhanced.png", "nums.jpg", "plot.tif", "port.jpg", "see.jpg", "subsection.jpg",
-             "testplot.jpg", "trial.jpg"]
+             "testplot.jpg", "trial.jpg", "Mouza Map.jpg"]
     temps = ["Template/Symbols.png", "Template/SymbolSet.png", "Template/Crops"]
 
     # make_subplots(title[3])
     # separate_plots(title[4])
     # hough_trans(title[3])
     # manual(title[3])
-    find_original("Mouza Map.jpg")
+    find_original(title[-1])

@@ -192,7 +192,7 @@ class Process:
         for cnt in contours:
             x, y, w, h = cv2.boundingRect(cnt)
             li.append(im[y:y + h, x:x + w])
-        return li, contours
+        return li
 
     @staticmethod
     def getn(r, coord, d=1):
@@ -226,18 +226,31 @@ class Process:
         grow[grow == 1] = 255
         processed = np.ones((img.shape[0], img.shape[1]), dtype=bool)
         img_thresh = 180
+        mnx, mny, mxx, mxy = np.inf, np.inf, -np.inf, -np.inf
         for i in range(len(s)):
             processed[s[i]] = False
+            mnx = min(mnx, s[i][0])
+            mny = min(mny, s[i][1])
+            mxx = max(mxx, s[i][0])
+            mxy = max(mxy, s[i][1])
         while len(s) > 0:
             pix = s[0]
             grow[pix] = img[pix]
             for coord in Process.getn(img.shape[:2], pix):
                 if processed[coord] and img[coord] < img_thresh:
+                    mnx = min(mnx, coord[0])
+                    mny = min(mny, coord[1])
+                    mxx = max(mxx, coord[0])
+                    mxy = max(mxy, coord[1])
                     grow[coord] = img[coord]
                     s.append(coord)
                     processed[coord] = False
             s.pop(0)
-        return grow
+        return grow, grow[mnx:mxx, mny:mxy]
+
+    @staticmethod
+    def generate_data():
+
 
     @staticmethod
     def seed_selection(cnt):

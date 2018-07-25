@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from Process import Process
 import cv2
 
 
@@ -18,6 +19,7 @@ class Visual:
     shift = False
     clicks = []
     track = {}
+    nu = 0
 
     @staticmethod
     def image_open(title, flag=0):
@@ -29,8 +31,6 @@ class Visual:
         :return: numpy array of image
         """
         img = cv2.imread(Visual.in_folder+title, flag)
-        # cv2.imshow(Visual.in_folder+title, img)
-        # cv2.waitKey()
         Visual.image = img
         return img
 
@@ -158,6 +158,9 @@ class Visual:
             cv2.circle(Visual.image, (Visual.current[1] + x, Visual.current[0] + y), 1, 0, -1)
             Visual.clicks.append((Visual.current[0] + y, Visual.current[1] + x))
 
+        if event == cv2.EVENT_RBUTTONDOWN:
+            Visual.track[Visual.nu].append((Visual.current[0] + y, Visual.current[1] + x))
+
     @staticmethod
     def get_pixel(img, title='Collect Seed'):
         """
@@ -170,6 +173,7 @@ class Visual:
         cv2.setMouseCallback(title, Visual.on_mouse, 0)
         Visual.current = [0, 0]
         Visual.shift = False
+        cmnt = [0 for i in range(10)]
         while True:
             Visual.show(title, img)
             Visual.shift = False
@@ -179,8 +183,12 @@ class Visual:
                 cv2.destroyAllWindows()
                 break
             elif 47 < pressed_key < 58:
-                Visual.track[pressed_key - 48].append(Visual.clicks[-1])
-                print(pressed_key - 48)
+                # Visual.track[pressed_key - 48].append(Visual.clicks[-1])
+                b, c = Process.region_growing(img, [Visual.clicks[-1]])
+                Visual.nu = pressed_key - 48
+                print(Visual.nu)
+                Visual.image_write("ALL/" + str(Visual.nu) + "/a" + str(cmnt[Visual.nu]), c)
+                cmnt[Visual.nu] += 1
                 continue
             elif pressed_key == ord('a'):
                 Visual.shift = True
