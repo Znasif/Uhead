@@ -250,6 +250,7 @@ class Process:
 
     @staticmethod
     def generate_data():
+        # random choice of digits from
 
 
     @staticmethod
