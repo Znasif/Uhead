@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from Process import Process
 import cv2
+import os
+import random
 
 
 class Visual:
@@ -18,8 +20,7 @@ class Visual:
     current = [0, 0]
     shift = False
     clicks = []
-    track = {}
-    nu = 0
+    track = None
 
     @staticmethod
     def image_open(title, flag=0):
@@ -124,11 +125,8 @@ class Visual:
         return new
 
     @staticmethod
-    def init_dict(flag=1):
-        if flag:
-            """ Only Digits"""
-            for i in range(10):
-                Visual.track[i] = []
+    def init_dict(nums):
+        Visual.track = [len(os.listdir(os.path.realpath("Extracted/ALL/" + str(j)))) for j in range(nums)]
 
     @staticmethod
     def draw_contour(img_org, contour):
@@ -158,9 +156,6 @@ class Visual:
             cv2.circle(Visual.image, (Visual.current[1] + x, Visual.current[0] + y), 1, 0, -1)
             Visual.clicks.append((Visual.current[0] + y, Visual.current[1] + x))
 
-        if event == cv2.EVENT_RBUTTONDOWN:
-            Visual.track[Visual.nu].append((Visual.current[0] + y, Visual.current[1] + x))
-
     @staticmethod
     def get_pixel(img, title='Collect Seed'):
         """
@@ -173,7 +168,6 @@ class Visual:
         cv2.setMouseCallback(title, Visual.on_mouse, 0)
         Visual.current = [0, 0]
         Visual.shift = False
-        cmnt = [0 for i in range(10)]
         while True:
             Visual.show(title, img)
             Visual.shift = False
@@ -183,12 +177,11 @@ class Visual:
                 cv2.destroyAllWindows()
                 break
             elif 47 < pressed_key < 58:
-                # Visual.track[pressed_key - 48].append(Visual.clicks[-1])
                 b, c = Process.region_growing(img, [Visual.clicks[-1]])
-                Visual.nu = pressed_key - 48
-                print(Visual.nu)
-                Visual.image_write("ALL/" + str(Visual.nu) + "/a" + str(cmnt[Visual.nu]), c)
-                cmnt[Visual.nu] += 1
+                nu = pressed_key - 48
+                print(nu)
+                Visual.image_write("ALL/" + str(nu) + "/" + str(Visual.track[nu]), c)
+                Visual.track[nu] += 1
                 continue
             elif pressed_key == ord('a'):
                 Visual.shift = True
@@ -218,3 +211,26 @@ class Visual:
         :param seed_cnt: number of provided seeds
         :return: NIL
         """
+
+    @staticmethod
+    def generate_data(nums, nums_per):
+        # random choice of digits from
+        dimension = 1024
+        dir = "Extracted/ALL/"
+        fls = len(Visual.track)
+        # annotations = {}
+        while nums > 0:
+            a = np.zeros((dimension, dimension, 3), dtype=np.uint8)
+            a = ~a
+            for i in range(nums_per):
+                b = random.randint(0, fls - 1)
+                c = random.randint(0, Visual.track[b] - 2)
+                e = dir + str(b) + "/" + str(c) + ".tif"
+                d = cv2.imread(e)
+                lx, ly = d.shape[:2]
+                x = random.randint(0, dimension - 100)
+                y = random.randint(0, dimension - 100)
+                a[x:x+lx, y:y+ly, ::] = d
+            # annotations["nums" + str(nums)] = a
+            cv2.imwrite(dir + "Gen/" + str(nums) + ".tif", a)
+            nums -= 1

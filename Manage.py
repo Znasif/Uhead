@@ -64,8 +64,13 @@ def manual(t):
 
 def find_original(t):
     a = Visual.image_open(t)
-    # Visual.init_dict()
+    Visual.init_dict(10)
     Visual.get_pixel(a)
+
+
+def generate_image():
+    Visual.init_dict(10)
+    Visual.generate_data(20, 30)
 
 
 if __name__ == "__main__":
@@ -77,4 +82,5 @@ if __name__ == "__main__":
     # separate_plots(title[4])
     # hough_trans(title[3])
     # manual(title[3])
-    find_original(title[-1])
+    # find_original(title[-1])
+    generate_image()

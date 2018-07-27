@@ -249,11 +249,6 @@ class Process:
         return grow, grow[mnx:mxx, mny:mxy]
 
     @staticmethod
-    def generate_data():
-        # random choice of digits from
-
-
-    @staticmethod
     def seed_selection(cnt):
         """
         This method returns a number of seeds from the separated contours that are smaller
