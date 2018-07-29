@@ -1,6 +1,7 @@
 import cv2
 import json
 import random
+import skimage.draw
 
 f = open("contours.json", "r")
 s = f.read()
@@ -8,14 +9,14 @@ annotations = json.loads(s)
 
 dir = "Extracted/ALL/"
 n = 20
-color = [(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)) for i in range(10)]
 fls = 10
-
+color = [(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)) for i in range(fls)]
 for i in range(n):
     a = cv2.imread(dir + "Gen/" + str(i) + ".tif")
-    for j in range(fls):
-        for k in range(len(annotations[str(i)][j]['x'])):
-            x, x_ = annotations[str(i)][j]['x'][k]
-            y, y_ = annotations[str(i)][j]['y'][k]
-            cv2.rectangle(a, (y, x), (y_, x_), color[j], 3)
+    for j in annotations[str(i)]["regions"].values():
+        num = j["region_attributes"]
+        ann_x = j["shape_attributes"]["all_points_x"]
+        ann_y = j["shape_attributes"]["all_points_y"]
+        rr, cc = skimage.draw.polygon(ann_y, ann_x)
+        a[rr, cc] = color[num]
     cv2.imwrite(dir + "Gen/" + str(i) + "a.tif", a)

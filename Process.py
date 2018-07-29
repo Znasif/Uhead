@@ -101,12 +101,22 @@ class Process:
             return color, contours[1:]
         elif flag == 0:
             return img, contours[1:]
-        else:
+        elif flag == 2:
             cn = []
             for i in contours:
                 if cv2.contourArea(i) > 30:
                     cn.append(i)
             return cn
+        else:
+            cnt = contours[0]
+            max_area = cv2.contourArea(cnt)
+            for cont in contours:
+                if cv2.contourArea(cont) > max_area:
+                    cnt = cont
+                    max_area = cv2.contourArea(cont)
+            epsilon = 0.01 * cv2.arcLength(cnt, True)
+            approx = cv2.approxPolyDP(cnt, epsilon, True)
+            return approx
 
     @staticmethod
     def get_subplots(img_org, img_plot):

@@ -117,9 +117,8 @@ class Visual:
         :return: NIL
         """
         p, q = np.shape(im_org)
-
-        new = np.full((p, q, 3), (255, 255, 255), dtype=np.uint8)
-
+        new = np.zeros((p, q, 3), dtype=np.uint8)
+        new = ~new
         new[im_org == 0] = (255, 255, 0)
         new[im_plot == 0] = (255, 0, 255)
         Visual.image = new
@@ -128,19 +127,6 @@ class Visual:
     @staticmethod
     def init_dict(nums):
         Visual.track = [len(os.listdir(os.path.realpath("Extracted/ALL/" + str(j)))) for j in range(nums)]
-
-    @staticmethod
-    def draw_contour(img_org, contour):
-        """
-        Just an interface for drawContour function
-        :param img_org: original image
-        :param contour: contour to be drawn
-        :return: image with just the contour
-        """
-        empty = np.zeros(img_org.shape, np.uint8)
-        empty = ~empty
-        cv2.drawContours(empty, [contour], 0, 0, -1)
-        Visual.plot('contour', empty)
 
     @staticmethod
     def on_mouse(event, x, y, flags, params):
@@ -224,10 +210,13 @@ class Visual:
         while nums > 0:
             a = np.zeros((dimension, dimension), dtype=np.uint8)
             a = ~a
-            annotations[nums - 1] = [{} for i in range(fls)]
-            for i in range(fls):
-                annotations[nums - 1][i]['x'] = []
-                annotations[nums - 1][i]['y'] = []
+            annotations[nums - 1] = {}
+            annotations[nums - 1]["fileref"] = ""
+            annotations[nums - 1]["size"] = dimension*dimension
+            annotations[nums - 1]["filename"] = str(nums - 1) + ".tif"
+            annotations[nums - 1]["base64_img_data"] = ""
+            annotations[nums - 1]["file_attributes"] = {}
+            annotations[nums - 1]["regions"] = {}
             for i in range(nums_per):
                 b = random.randint(0, fls - 1)
                 c = random.randint(0, Visual.track[b] - 2)
@@ -243,19 +232,21 @@ class Visual:
                         attempt -= 1
                     else:
                         a[x:x + lx, y:y + ly] = d
-
+                        '''
                         ann_x, ann_y = [x, x+lx], [y, y+ly]
                         '''
+                        approx = Process.get_contour(d, -1)
                         ann_x, ann_y = [], []
-                        for cnt in f:
-                            for ik in cnt:
-                                ann_x.append(x + int(ik[0][0]))
-                                ann_y.append(y + int(ik[0][1]))
-                        '''
-                        annotations[nums - 1][b]['x'].append(ann_x)
-                        annotations[nums - 1][b]['y'].append(ann_y)
+                        for poly in approx:
+                            ann_x.append(int(y + poly[0][0]))
+                            ann_y.append(int(x + poly[0][1]))
+                        annotations[nums - 1]["regions"][i] = {}
+                        annotations[nums - 1]["regions"][i]["shape_attributes"] = {}
+                        annotations[nums - 1]["regions"][i]["region_attributes"] = b
+                        annotations[nums - 1]["regions"][i]["shape_attributes"]["name"] = "polygon"
+                        annotations[nums - 1]["regions"][i]["shape_attributes"]["all_points_x"] = ann_x
+                        annotations[nums - 1]["regions"][i]["shape_attributes"]["all_points_y"] = ann_y
                         break
-            # annotations["nums" + str(nums)] = a
             cv2.imwrite(dir + "Gen/" + str(nums - 1) + ".tif", a)
             nums -= 1
         with open("contours.json", "w") as f:
