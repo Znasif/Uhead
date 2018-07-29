@@ -70,7 +70,7 @@ def find_original(t):
 
 def generate_image():
     Visual.init_dict(10)
-    Visual.generate_data(20, 30)
+    Visual.generate_data(20, 100)
 
 
 if __name__ == "__main__":

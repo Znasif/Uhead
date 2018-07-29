@@ -4,6 +4,7 @@ from Process import Process
 import cv2
 import os
 import random
+import json
 
 
 class Visual:
@@ -218,19 +219,45 @@ class Visual:
         dimension = 1024
         dir = "Extracted/ALL/"
         fls = len(Visual.track)
-        # annotations = {}
+        # mask = [[] for i in range(fls)]
+        annotations = {}
         while nums > 0:
-            a = np.zeros((dimension, dimension, 3), dtype=np.uint8)
+            a = np.zeros((dimension, dimension), dtype=np.uint8)
             a = ~a
+            annotations[nums - 1] = [{} for i in range(fls)]
+            for i in range(fls):
+                annotations[nums - 1][i]['x'] = []
+                annotations[nums - 1][i]['y'] = []
             for i in range(nums_per):
                 b = random.randint(0, fls - 1)
                 c = random.randint(0, Visual.track[b] - 2)
                 e = dir + str(b) + "/" + str(c) + ".tif"
-                d = cv2.imread(e)
+                d = cv2.imread(e, 0)
+                f = Process.get_contour(d, 2)
                 lx, ly = d.shape[:2]
-                x = random.randint(0, dimension - 100)
-                y = random.randint(0, dimension - 100)
-                a[x:x+lx, y:y+ly, ::] = d
+                attempt = 50
+                while attempt > 0:
+                    x = random.randint(0, dimension - lx)
+                    y = random.randint(0, dimension - ly)
+                    if np.any(np.where(a[x:x+lx, y:y+ly] < 180)):
+                        attempt -= 1
+                    else:
+                        a[x:x + lx, y:y + ly] = d
+
+                        ann_x, ann_y = [x, x+lx], [y, y+ly]
+                        '''
+                        ann_x, ann_y = [], []
+                        for cnt in f:
+                            for ik in cnt:
+                                ann_x.append(x + int(ik[0][0]))
+                                ann_y.append(y + int(ik[0][1]))
+                        '''
+                        annotations[nums - 1][b]['x'].append(ann_x)
+                        annotations[nums - 1][b]['y'].append(ann_y)
+                        break
             # annotations["nums" + str(nums)] = a
-            cv2.imwrite(dir + "Gen/" + str(nums) + ".tif", a)
+            cv2.imwrite(dir + "Gen/" + str(nums - 1) + ".tif", a)
             nums -= 1
+        with open("contours.json", "w") as f:
+            json.dump(annotations, f)
+            print("Done")

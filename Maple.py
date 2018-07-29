@@ -1,21 +1,21 @@
-from qgis.core import *
-# create a memory layer with two points
-layer =  QgsVectorLayer('Point', 'points' , "memory")
-# print(help(QgsVectorLayer()))
-pr = layer.dataProvider()
-# add the first point
-pt = QgsFeature()
-point1 = QgsPoint(50,50)
-pt.setGeometry(QgsGeometry.fromPoint(point1))
-pr.addFeatures([pt])
-# update extent of the layer
-layer.updateExtents()
-# add the second point
-pt = QgsFeature()
-point2 = QgsPoint(100,150)
-pt.setGeometry(QgsGeometry.fromPoint(point2))
-pr.addFeatures([pt])
-# update extent
-layer.updateExtents()
-# add the layer to the canvas
-QgsMapLayerRegistry.instance().addMapLayers([layer])
+import cv2
+import json
+import random
+
+f = open("contours.json", "r")
+s = f.read()
+annotations = json.loads(s)
+
+dir = "Extracted/ALL/"
+n = 20
+color = [(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)) for i in range(10)]
+fls = 10
+
+for i in range(n):
+    a = cv2.imread(dir + "Gen/" + str(i) + ".tif")
+    for j in range(fls):
+        for k in range(len(annotations[str(i)][j]['x'])):
+            x, x_ = annotations[str(i)][j]['x'][k]
+            y, y_ = annotations[str(i)][j]['y'][k]
+            cv2.rectangle(a, (y, x), (y_, x_), color[j], 3)
+    cv2.imwrite(dir + "Gen/" + str(i) + "a.tif", a)
