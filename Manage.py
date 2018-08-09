@@ -68,7 +68,7 @@ def find_original(t):
     Visual.get_pixel(a)
 
 
-def generate_image(images, nums_per, subset="train", dimenstion=1024):
+def generate_image(images, nums_per, subset="train", dimension=1024):
     Visual.init_dict(10)
     Visual.generate_data(images, nums_per, subset, dimension)
 
