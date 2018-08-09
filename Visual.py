@@ -200,23 +200,23 @@ class Visual:
         """
 
     @staticmethod
-    def generate_data(nums, nums_per):
+    def generate_data(nums, nums_per, subset, dimension):
         # random choice of digits from
-        dimension = 1024
-        dir = "Extracted/ALL/"
+        dir = "numbers/data/"# "Extracted/ALL/"
         fls = len(Visual.track)
         # mask = [[] for i in range(fls)]
         annotations = {}
         while nums > 0:
             a = np.zeros((dimension, dimension), dtype=np.uint8)
             a = ~a
-            annotations[nums - 1] = {}
-            annotations[nums - 1]["fileref"] = ""
-            annotations[nums - 1]["size"] = dimension*dimension
-            annotations[nums - 1]["filename"] = str(nums - 1) + ".tif"
-            annotations[nums - 1]["base64_img_data"] = ""
-            annotations[nums - 1]["file_attributes"] = {}
-            annotations[nums - 1]["regions"] = {}
+            file_name = str(nums - 1) + ".tif"
+            annotations[file_name] = {}
+            annotations[file_name]["fileref"] = ""
+            annotations[file_name]["size"] = dimension*dimension
+            annotations[file_name]["filename"] = str(nums - 1) + ".tif"
+            annotations[file_name]["base64_img_data"] = ""
+            annotations[file_name]["file_attributes"] = {}
+            annotations[file_name]["regions"] = {}
             for i in range(nums_per):
                 b = random.randint(0, fls - 1)
                 c = random.randint(0, Visual.track[b] - 2)
@@ -240,15 +240,15 @@ class Visual:
                         for poly in approx:
                             ann_x.append(int(y + poly[0][0]))
                             ann_y.append(int(x + poly[0][1]))
-                        annotations[nums - 1]["regions"][i] = {}
-                        annotations[nums - 1]["regions"][i]["shape_attributes"] = {}
-                        annotations[nums - 1]["regions"][i]["region_attributes"] = b
-                        annotations[nums - 1]["regions"][i]["shape_attributes"]["name"] = "polygon"
-                        annotations[nums - 1]["regions"][i]["shape_attributes"]["all_points_x"] = ann_x
-                        annotations[nums - 1]["regions"][i]["shape_attributes"]["all_points_y"] = ann_y
+                        annotations[file_name]["regions"][i] = {}
+                        annotations[file_name]["regions"][i]["shape_attributes"] = {}
+                        annotations[file_name]["regions"][i]["region_attributes"] = b
+                        annotations[file_name]["regions"][i]["shape_attributes"]["name"] = "polygon"
+                        annotations[file_name]["regions"][i]["shape_attributes"]["all_points_x"] = ann_x
+                        annotations[file_name]["regions"][i]["shape_attributes"]["all_points_y"] = ann_y
                         break
-            cv2.imwrite(dir + "Gen/" + str(nums - 1) + ".tif", a)
+            cv2.imwrite(dir + subset + file_name, a)
             nums -= 1
-        with open("contours.json", "w") as f:
+        with open(dir + subset + ".json", "w+") as f:
             json.dump(annotations, f)
             print("Done")

@@ -12,8 +12,9 @@ n = 20
 fls = 10
 color = [(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)) for i in range(fls)]
 for i in range(n):
-    a = cv2.imread(dir + "Gen/" + str(i) + ".tif")
-    for j in annotations[str(i)]["regions"].values():
+    file_name = str(i) + ".tif"
+    a = cv2.imread(dir + "Gen/" + file_name)
+    for j in annotations[file_name]["regions"].values():
         num = j["region_attributes"]
         ann_x = j["shape_attributes"]["all_points_x"]
         ann_y = j["shape_attributes"]["all_points_y"]
