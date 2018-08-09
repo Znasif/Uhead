@@ -202,7 +202,7 @@ class Visual:
     @staticmethod
     def generate_data(nums, nums_per, subset, dimension):
         # random choice of digits from
-        dir = "numbers/data/"# "Extracted/ALL/"
+        dir = "Extracted/ALL/"
         fls = len(Visual.track)
         # mask = [[] for i in range(fls)]
         annotations = {}
@@ -222,7 +222,6 @@ class Visual:
                 c = random.randint(0, Visual.track[b] - 2)
                 e = dir + str(b) + "/" + str(c) + ".tif"
                 d = cv2.imread(e, 0)
-                f = Process.get_contour(d, 2)
                 lx, ly = d.shape[:2]
                 attempt = 50
                 while attempt > 0:
@@ -247,8 +246,8 @@ class Visual:
                         annotations[file_name]["regions"][i]["shape_attributes"]["all_points_x"] = ann_x
                         annotations[file_name]["regions"][i]["shape_attributes"]["all_points_y"] = ann_y
                         break
-            cv2.imwrite(dir + subset + file_name, a)
+            cv2.imwrite("numbers/data/" + subset + "/" + file_name, a)
             nums -= 1
-        with open(dir + subset + ".json", "w+") as f:
+        with open("numbers/data/" + subset + ".json", "w") as f:
             json.dump(annotations, f)
             print("Done")
