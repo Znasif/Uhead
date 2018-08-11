@@ -83,4 +83,4 @@ if __name__ == "__main__":
     # hough_trans(title[3])
     # manual(title[3])
     # find_original(title[-1])
-    generate_image(20, 100)
+    generate_image(200, 10, "valid", 128)

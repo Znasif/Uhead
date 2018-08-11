@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2ef04c23-e657-433a-827d-cdf3b739ee87" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mask_RCNN" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Process.py" beforeDir="false" afterPath="$PROJECT_DIR$/Process.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Visual.py" beforeDir="false" afterPath="$PROJECT_DIR$/Visual.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numbers/data/valid.json" beforeDir="false" afterPath="$PROJECT_DIR$/numbers/data/valid.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numbers/mask_rcnn_circle.py" beforeDir="false" afterPath="$PROJECT_DIR$/numbers/mask_rcnn_circle.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +17,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Uhead$test.coverage" NAME="test Coverage Results" MODIFIED="1532319781960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Obsolete" />
-    <SUITE FILE_PATH="coverage/Uhead$Manage.coverage" NAME="Manage Coverage Results" MODIFIED="1533815646857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Uhead$Manage.coverage" NAME="Manage Coverage Results" MODIFIED="1533969045637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Uhead$try__2_.coverage" NAME="try (2) Coverage Results" MODIFIED="1532784295792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Extracted/ALL/1" />
     <SUITE FILE_PATH="coverage/Uhead$try.coverage" NAME="try Coverage Results" MODIFIED="1532275299597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Obsolete" />
     <SUITE FILE_PATH="coverage/Uhead$try__1_.coverage" NAME="try (1) Coverage Results" MODIFIED="1532769132376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Obsolete" />
@@ -27,36 +30,38 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="4" />
+          <entry key="project.open.time.114" value="1" />
           <entry key="project.open.time.122" value="1" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.55" value="1" />
           <entry key="project.open.time.57" value="1" />
           <entry key="project.open.time.63" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.71" value="1" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4125" />
+          <entry key="Python" value="4397" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="2" />
-          <entry key="Python" value="12" />
+          <entry key="Python" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="json" value="2" />
-          <entry key="py" value="12" />
+          <entry key="py" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4125" />
+          <entry key="py" value="4397" />
         </counts>
       </usages-collector>
     </session>
@@ -66,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Manage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+            <state relative-caret-position="267">
+              <caret line="85" column="41" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -76,10 +81,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/numbers/mask_rcnn_circle.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6593">
+              <caret line="347" column="36" selection-start-line="347" selection-start-column="36" selection-end-line="347" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="155" column="23" selection-start-line="155" selection-start-column="23" selection-end-line="155" selection-end-column="23" />
+            <state relative-caret-position="362">
+              <caret line="332" lean-forward="true" selection-start-line="332" selection-end-line="332" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -87,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Visual.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="249" column="21" lean-forward="true" selection-start-line="249" selection-start-column="21" selection-end-line="249" selection-end-column="21" />
+            <state relative-caret-position="3971">
+              <caret line="209" column="37" lean-forward="true" selection-start-line="209" selection-start-column="37" selection-end-line="209" selection-end-column="37" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -102,7 +116,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Maple.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
+            <state relative-caret-position="171">
               <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -141,6 +155,8 @@
       <find>get_co</find>
       <find>draw_con</find>
       <find>dir</find>
+      <find>nums</find>
+      <find>num</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,11 +169,12 @@
         <option value="$PROJECT_DIR$/Obsolete/test.py" />
         <option value="$PROJECT_DIR$/Obsolete/try.py" />
         <option value="$PROJECT_DIR$/Extracted/ALL/1/try.py" />
-        <option value="$PROJECT_DIR$/Process.py" />
-        <option value="$PROJECT_DIR$/Manage.py" />
         <option value="$PROJECT_DIR$/see.py" />
         <option value="$PROJECT_DIR$/Maple.py" />
+        <option value="$PROJECT_DIR$/numbers/mask_rcnn_circle.py" />
+        <option value="$PROJECT_DIR$/Manage.py" />
         <option value="$PROJECT_DIR$/Visual.py" />
+        <option value="$PROJECT_DIR$/Process.py" />
       </list>
     </option>
   </component>
@@ -167,7 +184,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="522" />
     <option name="y" value="-4" />
     <option name="width" value="697" />
@@ -179,6 +196,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,11 +204,15 @@
               <item name="Uhead" type="b2602c69:ProjectViewProjectNode" />
               <item name="Uhead" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Uhead" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Uhead" type="462c0819:PsiDirectoryNode" />
+              <item name="numbers" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -357,7 +379,7 @@
     <frame x="67" y="27" width="1299" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1292897" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13328013" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -387,23 +409,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Mask_RCNN/images/12283150_12d37e6389_z.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mask_RCNN/mrcnn/visualize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mask_RCNN/samples/balloon/inspect_balloon_data.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Mask_RCNN/images/12283150_12d37e6389_z.jpg" />
+    <entry file="file://$PROJECT_DIR$/Mask_RCNN/mrcnn/visualize.py" />
+    <entry file="file://$PROJECT_DIR$/Mask_RCNN/samples/balloon/inspect_balloon_data.ipynb" />
     <entry file="file://$PROJECT_DIR$/Maps/Template/try.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-162">
@@ -442,30 +450,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Mask_RCNN/samples/balloon/balloon.py">
+    <entry file="file://$PROJECT_DIR$/Mask_RCNN/samples/balloon/balloon.py" />
+    <entry file="file://$PROJECT_DIR$/Mask_RCNN/mrcnn/config.py" />
+    <entry file="file://$PROJECT_DIR$/Mask_RCNN/mrcnn/utils.py" />
+    <entry file="file://$PROJECT_DIR$/numbers/mask_rcnn_circle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2926">
-          <caret line="159" selection-start-line="159" selection-end-line="159" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mask_RCNN/mrcnn/config.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mask_RCNN/mrcnn/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4807">
-          <caret line="265" column="22" selection-start-line="265" selection-start-column="22" selection-end-line="265" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Maple.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="6593">
+          <caret line="347" column="36" selection-start-line="347" selection-start-column="36" selection-end-line="347" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -479,32 +470,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="155" column="23" selection-start-line="155" selection-start-column="23" selection-end-line="155" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+        <state relative-caret-position="267">
+          <caret line="85" column="41" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Maple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Visual.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="249" column="21" lean-forward="true" selection-start-line="249" selection-start-column="21" selection-end-line="249" selection-end-column="21" />
+        <state relative-caret-position="3971">
+          <caret line="209" column="37" lean-forward="true" selection-start-line="209" selection-start-column="37" selection-end-line="209" selection-end-column="37" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="332" lean-forward="true" selection-start-line="332" selection-end-line="332" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

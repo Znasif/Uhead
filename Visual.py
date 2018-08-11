@@ -5,6 +5,7 @@ import cv2
 import os
 import random
 import json
+from tqdm import tqdm
 
 
 class Visual:
@@ -206,14 +207,14 @@ class Visual:
         fls = len(Visual.track)
         # mask = [[] for i in range(fls)]
         annotations = {}
-        while nums > 0:
+        for num in tqdm(range(nums)):
             a = np.zeros((dimension, dimension), dtype=np.uint8)
             a = ~a
-            file_name = str(nums - 1) + ".tif"
+            file_name = str(num) + ".tif"
             annotations[file_name] = {}
             annotations[file_name]["fileref"] = ""
             annotations[file_name]["size"] = dimension*dimension
-            annotations[file_name]["filename"] = str(nums - 1) + ".tif"
+            annotations[file_name]["filename"] = file_name
             annotations[file_name]["base64_img_data"] = ""
             annotations[file_name]["file_attributes"] = {}
             annotations[file_name]["regions"] = {}
@@ -247,7 +248,6 @@ class Visual:
                         annotations[file_name]["regions"][i]["shape_attributes"]["all_points_y"] = ann_y
                         break
             cv2.imwrite("numbers/data/" + subset + "/" + file_name, a)
-            nums -= 1
         with open("numbers/data/" + subset + ".json", "w") as f:
             json.dump(annotations, f)
             print("Done")

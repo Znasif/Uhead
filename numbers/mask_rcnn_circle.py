@@ -13,9 +13,7 @@ Original file is located at
 
 !pip install -r Mask_RCNN/requirements.txt
 
-import os
-
-os.chdir('/content/Mask_RCNN/samples/')
+%cd "/content/Mask_RCNN/samples/"
 
 """## Upload Circle Dataset
 File Structure
@@ -39,8 +37,6 @@ _ = colab.files.upload()
 
 !unzip -q circle.zip
 
-os.chdir('circle')
-
 !ls data
 
 """# Mask R-CNN - Train on Circle Dataset
@@ -62,6 +58,7 @@ import cv2
 import matplotlib
 import matplotlib.pyplot as plt
 import json
+import skimage.draw
 
 # Root directory of the project
 ROOT_DIR = os.path.abspath("../../")
@@ -87,13 +84,13 @@ if not os.path.exists(COCO_MODEL_PATH):
 
 """## Configurations"""
 
-class CircleConfig(Config):
+class NumberConfig(Config):
     """Configuration for training on the toy circle dataset.
     Derives from the base Config class and overrides values specific
     to the toy shapes dataset.
     """
     # Give the configuration a recognizable name
-    NAME = "circle"
+    NAME = "number"
 
     # Train on 1 GPU and 8 images per GPU. We can put multiple images on each
     # GPU because the images are small. Batch size is 8 (GPUs * images/GPU).
@@ -121,7 +118,7 @@ class CircleConfig(Config):
     # use small validation steps since the epoch is small
     VALIDATION_STEPS = 5
     
-config = CircleConfig()
+config = NumberConfig()
 config.display()
 
 """## Notebook Preferences"""
@@ -156,7 +153,7 @@ class CircleDataset(utils.Dataset):
         subset: Subset to load: train or val
         """
         # Add classes. We have only one class to add.
-        self.add_class("circle", 1, "circle")
+        self.add_class("number", 1, "number")
 
         # Train or validation dataset?
         assert subset in ["train", "valid"]
@@ -175,32 +172,43 @@ class CircleDataset(utils.Dataset):
         file_names = os.listdir(image_dir)
         count = len(file_names)
         for i in range(count):
+            # Get the x, y coordinaets of points of the polygons that make up
+            # the outline of each object instance. There are stores in the
+            # shape_attributes (see json format above)
+            polygons = []
+            for row in annotation_dict[i]['regions'].values():
+                if row["region_attributes"]<5:
+                    polygons.append(row['shape_attributes'])
+
             file_name = file_names[i]
-            region = annotation_dict[file_name]
             image_path = os.path.join(image_dir, file_name)
             image = cv2.imread(image_path)
             height, width = image.shape[:2]
-            self.add_image("circle", image_id=file_name, path=image_path,
-                           width=width, height=height, region=region)
+            self.add_image("number", image_id=file_name, path=image_path,
+                           width=width, height=height, polygons=polygons)
         
 
     def load_mask(self, image_id):
-        # We expect only one circle in each image
-        instance_count = 1
-
+        """Generate instance masks for an image.
+               Returns:
+                masks: A bool array of shape [height, width, instance count] with
+                    one mask per instance.
+                class_ids: a 1D array of class IDs of the instance masks.
+                """
+        # If not a balloon dataset image, delegate to parent class.
         image_info = self.image_info[image_id]
-        if image_info["source"] != "circle":
+        if image_info["source"] != "number":
             return super(self.__class__, self).load_mask(image_id)
 
         # Convert polygons to a bitmap mask of shape
         # [height, width, instance_count]
         info = self.image_info[image_id]
-        mask = np.zeros([info["height"], info["width"]], dtype=np.uint8)
-        region = info["region"]
-        pts = np.array(region, dtype=np.int32)
-        pts = pts.reshape((-1, 1, 2))
-        mask = cv2.fillPoly(mask, [pts], (255,255,255))
-        mask = mask.reshape([info["height"], info["width"], instance_count])
+        mask = np.zeros([info["height"], info["width"], len(info["polygons"])],
+                        dtype=np.uint8)
+        for i, p in enumerate(info["polygons"]):
+            # Get indexes of pixels inside the polygon and set them to 1
+            rr, cc = skimage.draw.polygon(p['all_points_y'], p['all_points_x'])
+            mask[rr, cc, i] = 1
 
         # Return mask, and array of class IDs of each instance. Since we have
         # one class ID only, we return an array of 1s
@@ -209,7 +217,7 @@ class CircleDataset(utils.Dataset):
     def image_reference(self, image_id):
         """Return the path of the image."""
         info = self.image_info[image_id]
-        if info["source"] == "circle":
+        if info["source"] == "number":
             return info["path"]
         else:
             super(self.__class__, self).image_reference(image_id)
@@ -231,7 +239,7 @@ for image_id in image_ids:
     mask, class_ids = dataset_train.load_mask(image_id)
     visualize.display_top_masks(image, mask, class_ids, dataset_train.class_names)
 
-"""## Ceate Model"""
+"""## Create Model"""
 
 # Create model in training mode
 model = modellib.MaskRCNN(mode="training", config=config,

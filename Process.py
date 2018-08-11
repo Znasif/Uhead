@@ -4,6 +4,7 @@ import random as rn
 from skimage.feature import canny
 from skimage.transform import probabilistic_hough_line
 from scipy.ndimage import grey_erosion, grey_dilation
+from tqdm import tqdm
 
 
 class Process:
@@ -93,7 +94,7 @@ class Process:
 
         if flag == 1:
             empty = np.zeros(img.shape, np.uint8)
-            for cnt in contours[1:]:
+            for cnt in tqdm(contours[1:]):
                 cv2.drawContours(empty, [cnt], 0, (255, 255, 255), -1)
                 i, j, k = rn.randint(0, 255), rn.randint(0, 255), rn.randint(0, 255)
                 cv2.drawContours(color, [cnt], 0, (i, j, k), -1)
@@ -103,14 +104,14 @@ class Process:
             return img, contours[1:]
         elif flag == 2:
             cn = []
-            for i in contours:
+            for i in tqdm(contours):
                 if cv2.contourArea(i) > 30:
                     cn.append(i)
             return cn
         else:
             cnt = contours[0]
             max_area = cv2.contourArea(cnt)
-            for cont in contours:
+            for cont in tqdm(contours):
                 if cv2.contourArea(cont) > max_area:
                     cnt = cont
                     max_area = cv2.contourArea(cont)
@@ -128,7 +129,7 @@ class Process:
         """
         _, contours = Process.get_contour(img_plot)
         subplot_list = []
-        for cnt in contours:
+        for cnt in tqdm(contours):
             img = np.copy(img_org)
             # print(cv2.contourArea(cnt))
             empty = np.zeros(img.shape, np.uint8)
@@ -163,7 +164,7 @@ class Process:
         nums = np.zeros_like(img)
         nums[nums == 0] = 255
 
-        for cnt in contours[2:]:
+        for cnt in tqdm(contours[2:]):
             now_size = cv2.contourArea(cnt)
             max_contour_size = max(now_size, max_contour_size)
             min_contour_ize = min(now_size, min_contour_ize)
