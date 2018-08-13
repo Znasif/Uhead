@@ -107,6 +107,13 @@ class Process:
                 if cv2.contourArea(i) > 30:
                     cn.append(i)
             return cn
+        elif flag == 3:
+            cn = []
+            for i in contours:
+                arean = cv2.contourArea(i)
+                if arean > 120 and arean < 2400:
+                    cn.append(i)
+            return cn
         else:
             cnt = contours[0]
             max_area = cv2.contourArea(cnt)
@@ -254,9 +261,13 @@ class Process:
                     mxy = max(mxy, coord[1])
                     grow[coord] = img[coord]
                     s.append(coord)
+                    # print('.', end="")
                     processed[coord] = False
+                else:
+                    # print(',', end="")
+                    pass
             s.pop(0)
-        return grow, grow[mnx:mxx, mny:mxy]
+        return grow, grow[mnx:mxx, mny:mxy], (mnx, mny)
 
     @staticmethod
     def seed_selection(cnt):
@@ -328,4 +339,3 @@ class Process:
         :param cnts: List of contours
         :return: dictionary
         """
-

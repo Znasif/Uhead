@@ -165,7 +165,7 @@ class Visual:
                 cv2.destroyAllWindows()
                 break
             elif 47 < pressed_key < 58:
-                b, c = Process.region_growing(img, [Visual.clicks[-1]])
+                b, c, _ = Process.region_growing(img, [Visual.clicks[-1]])
                 nu = pressed_key - 48
                 print(nu)
                 Visual.image_write("ALL/" + str(nu) + "/" + str(Visual.track[nu]), c)
