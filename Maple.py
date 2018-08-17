@@ -2,16 +2,17 @@ import cv2
 import json
 import random
 import skimage.draw
+from tqdm import tqdm
 
-f = open("contours.json", "r")
+f = open("numbers/data/train.json", "r")
 s = f.read()
 annotations = json.loads(s)
 
-dir = "Extracted/ALL/"
+dir = "numbers/data/train/"
 n = 20
 fls = 10
 color = [(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)) for i in range(fls)]
-for i in range(n):
+for i in tqdm(range(n)):
     file_name = str(i) + ".tif"
     a = cv2.imread(dir + "Gen/" + file_name)
     for j in annotations[file_name]["regions"].values():

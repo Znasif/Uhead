@@ -69,7 +69,7 @@ def find_original(t):
 
 
 def generate_image(images, nums_per, subset="train", dimension=1024):
-    Visual.init_dict(10)
+    Visual.init_dict()
     Visual.generate_data(images, nums_per, subset, dimension)
 
 
@@ -83,4 +83,4 @@ if __name__ == "__main__":
     # hough_trans(title[3])
     # manual(title[3])
     # find_original(title[-1])
-    generate_image(200, 10, "valid", 128)
+    generate_image(20, 10, "valid", 128)
