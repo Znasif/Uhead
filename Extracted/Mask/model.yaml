@@ -424,11 +424,11 @@ config:
 
           AmYDGQB9AXQAagF8AnwBfAN8BIMEUwApAk7pAgAAACkC2gFL2g5jdGNfYmF0Y2hfY29zdCkF2gRh
 
-          cmdz2gZ5X3ByZWTaBmxhYmVsc9oMaW5wdXRfbGVuZ3Ro2gxsYWJlbF9sZW5ndGipAHIJAAAA+ixD
+          cmdz2gZ5X3ByZWTaBmxhYmVsc9oMaW5wdXRfbGVuZ3Ro2gxsYWJlbF9sZW5ndGipAHIJAAAA+h48
 
-          Oi9Vc2Vycy9CYWRob24vUHljaGFybVByb2plY3RzL2ltcmFuL29jci5wedoPY3RjX2xhbWJkYV9m
+          aXB5dGhvbi1pbnB1dC02LTMzMDYwMTFmZmY1Yz7aD2N0Y19sYW1iZGFfZnVuY/gAAABzBgAAAAAB
 
-          dW5j+AAAAHMGAAAAAAEMAxoB
+          DAMaAQ==
 
           ', null, null]
       function_type: lambda
@@ -457,4 +457,4 @@ config:
   name: model_2
   output_layers:
   - [ctc, 0, 0]
-keras_version: 2.1.5
+keras_version: 2.1.6
