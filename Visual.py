@@ -112,7 +112,7 @@ class Visual:
         return im_nums
 
     @staticmethod
-    def get_overlay(im_plot, im_org):
+    def get_overlay(im_org, im_plot):
         """
         Shows overlap of the two images in different colors
         :param im_org: image 1
@@ -122,8 +122,8 @@ class Visual:
         p, q = np.shape(im_org)
         new = np.zeros((p, q, 3), dtype=np.uint8)
         new = ~new
-        new[im_org == 0] = (255, 255, 0)
-        new[im_plot < 80] = (255, 0, 255)
+        new[im_plot == 0] = (255, 255, 0)
+        new[im_org < 80] = (255, 0, 255)
         Visual.image = new
         return new
 
