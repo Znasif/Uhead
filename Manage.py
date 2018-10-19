@@ -72,6 +72,13 @@ def generate_image(images, nums_per, subset="train", dimension=1024):
     Visual.init_dict()
     Visual.generate_data(images, nums_per, subset, dimension)
 
+def no_noise(s, t):
+    a = Visual.image_open(s)
+    b = Visual.image_open(t)
+    # print(a.shape, b.shape)
+    c = Visual.get_overlay(a, b)
+    Visual.image_write("OVER" + t + s, c)
+
 
 if __name__ == "__main__":
     title = ["Numbered.png", "Enhanced.png", "nums.jpg", "plot.tif", "port.jpg", "see.jpg", "subsection.jpg",
@@ -83,4 +90,6 @@ if __name__ == "__main__":
     # hough_trans(title[3])
     # manual(title[3])
     # find_original(title[-1])
-    generate_image(20, 10, "valid", 128)
+    # generate_image(20, 10, "valid", 128)
+    Visual.in_folder = "Extracted/"
+    no_noise("newMouza Map.jpg", "Mouza Map.jpg")
