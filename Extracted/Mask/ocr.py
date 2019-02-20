@@ -362,7 +362,7 @@ loaded_model_yaml = yaml_file.read()
 yaml_file.close()
 loaded_model = model_from_yaml(loaded_model_yaml)
 # load weights into new model
-loaded_model.load_weights("model.h5")
+loaded_model.load_weights("new_model.h5")
 print("Loaded model from disk")
 
 
@@ -391,7 +391,7 @@ def decode_batch(out):
 #########################------------------------Test on validation images
 
 direc1 = "../"
-tiger_test = TextImageGenerator(join(direc1, 'ALL'), 32, 28, 32, 4)
+tiger_test = TextImageGenerator(join(direc1, 'Experiment'), 32, 28, 32, 4)
 tiger_test.build_data()
 
 net_inp = loaded_model.get_layer(name='the_input').input

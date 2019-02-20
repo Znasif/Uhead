@@ -122,8 +122,8 @@ class Visual:
         p, q = np.shape(im_org)
         new = np.zeros((p, q, 3), dtype=np.uint8)
         new = ~new
-        new[im_org == 0] = (255, 255, 0)
-        new[im_plot == 0] = (255, 0, 255)
+        new[im_plot == 0] = (255, 255, 0)
+        new[im_org < 80] = (255, 0, 255)
         Visual.image = new
         return new
 
