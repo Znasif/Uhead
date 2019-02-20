@@ -82,5 +82,5 @@ if __name__ == "__main__":
     # separate_plots(title[4])
     # hough_trans(title[3])
     # manual(title[3])
-    # find_original(title[-1])
-    generate_image(20, 10, "valid", 128)
+    find_original(title[-1])
+    # generate_image(20, 10, "valid", 128)
